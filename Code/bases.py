@@ -10,6 +10,20 @@ import string
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
 
+
+def to_binary(number):
+    binary_number = []
+    while number >= 1:
+        binary_number.insert(0, number % 2)
+        number = number // 2
+    return binary_number
+
+def to_binary_recursive(number):
+    if number >= 1:
+        print(number % 2)
+        to_binary_recursive(number // 2)
+    return
+
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)
@@ -63,18 +77,19 @@ def convert(digits, base1, base2):
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
-    import sys
-    args = sys.argv[1:]  # Ignore script file name
-    if len(args) == 3:
-        digits = args[0]
-        base1 = int(args[1])
-        base2 = int(args[2])
-        # Convert given digits between bases
-        result = convert(digits, base1, base2)
-        print('{} in base {} is {} in base {}'.format(digits, base1, result, base2))
-    else:
-        print('Usage: {} digits base1 base2'.format(sys.argv[0]))
-        print('Converts digits from base1 to base2')
+    # import sys
+    # args = sys.argv[1:]  # Ignore script file name
+    # if len(args) == 3:
+    #     digits = args[0]
+    #     base1 = int(args[1])
+    #     base2 = int(args[2])
+    #     # Convert given digits between bases
+    #     result = convert(digits, base1, base2)
+    #     print('{} in base {} is {} in base {}'.format(digits, base1, result, base2))
+    # else:
+    #     print('Usage: {} digits base1 base2'.format(sys.argv[0]))
+    #     print('Converts digits from base1 to base2')
+    print(to_binary_recursive(49))
 
 
 if __name__ == '__main__':
