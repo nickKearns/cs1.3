@@ -14,18 +14,18 @@ import string
 def digit_to_ascii(digit):
     return string.printable[digit]
 
-def to_binary(number):
-    binary_number = []
-    while number >= 1:
-        binary_number.insert(0, number % 2)
-        number = number // 2
-    return binary_number
+# def to_binary(number):
+#     binary_number = []
+#     while number >= 1:
+#         binary_number.insert(0, number % 2)
+#         number = number // 2
+#     return binary_number
 
-def to_binary_recursive(number):
-    if number >= 1:
-        print(number % 2)
-        to_binary_recursive(number // 2)
-    return
+# def to_binary_recursive(number):
+#     if number >= 1:
+#         print(number % 2)
+#         to_binary_recursive(number // 2)
+#     return
 
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
