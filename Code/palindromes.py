@@ -39,25 +39,21 @@ def is_palindrome_iterative(text):
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
-
+    text = text.lower()
     # string_list = text
-    if left == None:
-        left = 0
-    if right == None:
-        right = len(text) - 1
+    if left == None and right == None:
+        left, right = 0, len(text) - 1
 
     
     if left >= right:
         return True
     else:
-        if not text[left].isalnum():
+        while not text[left].isalnum():
             left += 1
-        if not text[right].isalnum():
+        while not text[right].isalnum():
             right -= 1
-        if text[left].lower() == text[right].lower():
-            left += 1
-            right -= 1
-            return is_palindrome_recursive(text, left, right)
+        if text[left] == text[right]:
+            return is_palindrome_recursive(text, left + 1, right - 1)
     return False
     
 
