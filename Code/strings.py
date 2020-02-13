@@ -10,16 +10,19 @@ def contains(text, pattern):
     #     return True
 
 
-    for i in range(len(text)):
-        match = True
-        for j in range(len(pattern)):
-            if text[i+j] != pattern[j]:
-                match = False
-                break
-        if match:
-           return match
-    return False
-
+    # for i in range(len(text)):
+    #     match = True
+    #     for j in range(len(pattern)):
+    #         if text[i+j] != pattern[j]:
+    #             match = False
+    #             break
+    #     if match:
+    #        return match
+    # return False
+    if find_all_indexes(text, pattern):
+        return True
+    else:
+        return False
 
 # print('Testing contains:', contains('abazbc', 'abc'))
     
@@ -33,17 +36,26 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
-    for i in range(len(text)):
-        match = True
-        for j in range(len(pattern)):
-            if text[i+j] != pattern[j]:
-                match = False
-                break
-        if match:
-            return i
-    return None
+    # for i in range(len(text)):
+    #     match = True
+    #     for j in range(len(pattern)):
+    #         if text[i+j] != pattern[j]:
+    #             match = False
+    #             break
+    #     if match:
+    #         return i
+    # return None
+    list_of_occurances = find_all_indexes(text, pattern)
+    if list_of_occurances:
+        return list_of_occurances[0]
+    else:
+        return None
+
+
+
+
         
-print('Testing find index:', find_index('ababc', 'abc'))
+# print('Testing find index:', find_index('ababc', 'abc'))
 
 
 def find_all_indexes(text, pattern):
@@ -53,14 +65,6 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
 
-# index_pos = []
-#     for i in range(len(text) - len(pattern) + 1):
-#         for j in range(len(pattern)):
-#             if text[i+j] != pattern[j]:
-#                 break
-#         else:
-#             index_pos.append(i)
-#     return index_pos
     if not pattern:
         return [i for i in range(len(text))]
 
