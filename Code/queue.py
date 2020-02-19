@@ -32,7 +32,7 @@ class LinkedQueue(object):
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]
-        
+        this function takes constant time because appending something to a linked list takes constant time
         """
         # TODO: Insert given item
         self.list.append(item)
@@ -40,7 +40,8 @@ class LinkedQueue(object):
 
     def front(self):
         """Return the item at the front of this queue without removing it,
-        or None if this queue is empty."""
+        or None if this queue is empty.
+        """
         # TODO: Return front item, if any
         if self.list.is_empty():
             return None
@@ -50,7 +51,12 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        This function takes constant time because the linked list delete function is called
+        and that functions best case run time is O(1) and that is always the case with 
+        how it is being called here because the node being deleted is always the first
+        node checked
+        """
         # TODO: Remove and return front item, if any
         if self.list.is_empty():
             raise ValueError("no data")
@@ -93,7 +99,9 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        This takes constant time because appending something to a list takes constant time
+        """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -110,7 +118,13 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]
+        This function's time complexity is O(n) because when you delete an element 
+        from a list all the things after it must be shifted down in memory so 
+        the time complexity is dependent on the number of items after what is being
+        deleted and since what is being deleted is the first element then n number of 
+        items are being shifted
+        """
         # TODO: Remove and return front item, if any
         if self.is_empty():
             raise ValueError("queue is empty")
