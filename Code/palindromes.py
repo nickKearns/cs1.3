@@ -45,7 +45,6 @@ def is_palindrome_iterative(text):
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
     text = text.lower()
-    # string_list = text
     if left == None and right == None:
         left, right = 0, len(text) - 1
 
