@@ -7,9 +7,9 @@ def contains(text, pattern):
     time complexity. The worst case is that two for loops must be iterated over completely
     the outer for loop being iterated completely means that the inner one is iterated over how 
     ever many times the outer one is so it is multiplicative
-    Therefore the time complexity is O(i*j)
-    i being the number of elements in the text parameter to be iterated over in the outer for loop
-    and j being the number of elements in the pattern parameter to iterated over in the inner for loop
+    Therefore the time complexity is O(n*m)
+    n being the number of elements in the text parameter to be iterated over in the outer for loop
+    and m being the number of elements in the pattern parameter to iterated over in the inner for loop
     
     """
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
@@ -40,7 +40,7 @@ def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
     or None if not found.
     
-    Worst case time complexity is O(i*j)
+    Worst case time complexity is O(n*m)
     Because the find_all_indexes() function is being used this function's
     time complexity is based directly off of that functions complexity
     """
@@ -75,10 +75,10 @@ def find_all_indexes(text, pattern):
     Time Complexity: Best case time complexity is that there is no pattern inputed,
     which would just be an empty string and that matches the entire text string so
     this function will return just the length of the text inputed
-    Worst case is O(i*j) because it is a double for loop that loops through 
-    the length ofthe text(i) and the length of the pattern(j). The worst case is that the 
-    function has to loop through both for loops entirely, meaning that it for every i iteration 
-    of the outter for loop j was iterated over completely, so that is where the i * j comes from
+    Worst case is O(n*m) because it is a double for loop that loops through 
+    the length ofthe text(n) and the length of the pattern(m). The worst case is that the 
+    function has to loop through both for loops entirely, meaning that it for every n iteration 
+    of the outter for loop m was iterated over completely, so that is where the n * m comes from
     This functions time complexity heavily effects the above two functions' time complexities
 
     
