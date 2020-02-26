@@ -25,7 +25,13 @@ class HashTable(object):
 
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: ??? under what conditions? [TODO]
+        
+        This will always take constant time because it is a simple math
+        operation and getting the size takes constant time and getting the length 
+        self.buckets also takes constant time.
+        
+        """
         # TODO: Calculate load factor
         # return ...
         return self.size / len(self.buckets)
@@ -34,7 +40,13 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: ??? under what conditions? [TODO]
+        
+        Best and worst case run time are the same. All of the linked lists in
+        the hash table must be traversed and that equates to n, the number
+        of entries in the hash table. The time complexity is O(n)
+        
+        """
         # Collect all keys in each of the buckets
         all_keys = []
         for bucket in self.buckets:
@@ -44,7 +56,13 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: ??? under what conditions? [TODO]
+        
+        Best and worst case run time are the same. All of the linked lists in
+        the hash table must be traversed and that equates to n, the number
+        of entries in the hash table. The time complexity is O(n)
+        
+        """
         # Collect all values in each of the buckets
         all_values = []
         for bucket in self.buckets:
@@ -54,7 +72,13 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all entries (key-value pairs) in this hash table.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: ??? under what conditions? [TODO]
+        
+        Best and worst case run time are the same. All of the linked lists in
+        the hash table must be traversed and that equates to n, the number
+        of entries in the hash table. The time complexity is O(n)
+        
+        """
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
         for bucket in self.buckets:
@@ -86,7 +110,19 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Worst case running time: ??? under what conditions? [TODO]
+
+        Best case run time is O(1) constant time and this would be when the bucket that
+        is being searched has only 1 entry in its linked list or if the item that needs to be found 
+        is the in the head node of the linked list within that bucket. Finding the correct bucket to 
+        search through takes constant time because of the hash function being utilized
+        to get the index of the bucket.
+
+        Worst case run time is O(l) where l is the average length of the linked lists within the buckets
+        the worst case is that the functions find the bucket and the item being searched for is in the 
+        tail of the linked list
+
+        """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -103,7 +139,18 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Worst case running time: ??? under what conditions? [TODO]
+        
+        The best case run time is O(1) and that would be when inputing a new 
+        element into a linked list at the head node. So there is no traversal
+        of the linked list needed
+
+        Worst case run time is O(l) and that would be when inputin a new element into 
+        a longer linked list. l is the average length of the linked lists in the hash table
+        so the worst case would be entering an element into the longest
+        linked list in the hash table.
+
+        """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -131,6 +178,15 @@ class HashTable(object):
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]
         
+        Best case run time is O(1) constant time because similar to searching 
+        for an item if the item is in the head node of the linked list
+        then it takes constant time to find. And then it takes constant time to 
+        switch the pointers around to remove the element from the linked list
+
+        Worst case run time is O(l) where l is the average length of the linked lists.
+        The worst case would be that the element you are trying to delete is in the tail of 
+        the linked list and the entire linked list must be traversed to get there
+
         """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
@@ -149,7 +205,11 @@ class HashTable(object):
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
         Best and worst case running time: ??? under what conditions? [TODO]
-        Best and worst case space usage: ??? what uses this memory? [TODO]"""
+        Best and worst case space usage: ??? what uses this memory? [TODO]
+        
+        
+
+        """
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
             new_size = len(self.buckets) * 2  # Double size

@@ -240,7 +240,15 @@ class BinarySearchTree(object):
         """Traverse this binary tree with recursive in-order traversal (DFS).
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
-        TODO: Memory usage: ??? Why and under what conditions?"""
+
+        O(n) although there are a few constant time operations done for each node
+        the time complexity is mostly dependent on the number (n) of nodes in the tree
+
+        TODO: Memory usage: ??? Why and under what conditions?
+        
+        O(log2(n)) space complexity
+        
+        """
         # TODO: Traverse left subtree, if it exists
         if node.left is not None:
             self._traverse_in_order_recursive(node.left, visit)
@@ -271,7 +279,16 @@ class BinarySearchTree(object):
         """Traverse this binary tree with recursive pre-order traversal (DFS).
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
-        TODO: Memory usage: ??? Why and under what conditions?"""
+
+        O(n) although there are a few constant time operations done for each node
+        the time complexity is mostly dependent on the number (n) of nodes in the tree
+
+        O(log2(n)) space complexity
+
+        TODO: Memory usage: ??? Why and under what conditions?
+        
+        
+        """
         # TODO: Visit this node's data with given function
         visit(node.data)
         # TODO: Traverse left subtree, if it exists
@@ -302,7 +319,16 @@ class BinarySearchTree(object):
         """Traverse this binary tree with recursive post-order traversal (DFS).
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
-        TODO: Memory usage: ??? Why and under what conditions?"""
+
+        O(n) although there are a few constant time operations done for each node
+        the time complexity is mostly dependent on the number (n) of nodes in the tree
+
+        TODO: Memory usage: ??? Why and under what conditions?
+        
+        O(log2(n)) space complexity
+
+        
+        """
         # TODO: Traverse left subtree, if it exists
         if node.left is not None:
             self._traverse_post_order_recursive(node.left, visit)
