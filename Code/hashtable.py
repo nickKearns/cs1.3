@@ -206,9 +206,6 @@ class HashTable(object):
         such as 0.75 after an insertion (when set is called with a new key).
         Best and worst case running time: ??? under what conditions? [TODO]
         Best and worst case space usage: ??? what uses this memory? [TODO]
-        
-        
-
         """
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
