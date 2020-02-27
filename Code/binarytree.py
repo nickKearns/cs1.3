@@ -246,7 +246,16 @@ class BinarySearchTree(object):
 
         TODO: Memory usage: ??? Why and under what conditions?
         
-        O(log2(n)) space complexity
+        O(log2(n)) space complexity because python is created a call stack 
+        to handle the recursive calls. Therefore a stack is taking up memory usage.
+        The space complexity is O(log2(n)) because the largest the stack can ever be
+        is the height of the longest branch. The way it works recursively is that it travels
+        down to the left as far as it can and then it starts to go back so within the stack
+        there will never be nodes that are on the depth as each other. It will only ever go 
+        from node to child node and back. And the height of the tree can be described as log2(n)
+        because the tree grows exponetially with each generation (if it is a well balanced tree)
+        so the way to determine how many nodes would be in a single traversal down the tree
+        would be the opposite of exponential which is logarithm.
         
         """
         # TODO: Traverse left subtree, if it exists
@@ -283,7 +292,16 @@ class BinarySearchTree(object):
         O(n) although there are a few constant time operations done for each node
         the time complexity is mostly dependent on the number (n) of nodes in the tree
 
-        O(log2(n)) space complexity
+        O(log2(n)) space complexity because python is created a call stack 
+        to handle the recursive calls. Therefore a stack is taking up memory usage.
+        The space complexity is O(log2(n)) because the largest the stack can ever be
+        is the height of the longest branch. The way it works recursively is that it travels
+        down to the left as far as it can and then it starts to go back so within the stack
+        there will never be nodes that are on the depth as each other. It will only ever go 
+        from node to child node and back. And the height of the tree can be described as log2(n)
+        because the tree grows exponetially with each generation (if it is a well balanced tree)
+        so the way to determine how many nodes would be in a single traversal down the tree
+        would be the opposite of exponential which is logarithm. 
 
         TODO: Memory usage: ??? Why and under what conditions?
         
@@ -325,7 +343,16 @@ class BinarySearchTree(object):
 
         TODO: Memory usage: ??? Why and under what conditions?
         
-        O(log2(n)) space complexity
+        O(log2(n)) space complexity because python is created a call stack 
+        to handle the recursive calls. Therefore a stack is taking up memory usage.
+        The space complexity is O(log2(n)) because the largest the stack can ever be
+        is the height of the longest branch. The way it works recursively is that it travels
+        down to the left as far as it can and then it starts to go back so within the stack
+        there will never be nodes that are on the depth as each other. It will only ever go 
+        from node to child node and back. And the height of the tree can be described as log2(n)
+        because the tree grows exponetially with each generation (if it is a well balanced tree)
+        so the way to determine how many nodes would be in a single traversal down the tree
+        would be the opposite of exponential which is logarithm. 
 
         
         """
