@@ -66,7 +66,12 @@ class BinarySearchTree(object):
     def height(self):
         """Return the height of this tree (the number of edges on the longest
         downward path from this tree's root node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        TODO: Best and worst case running time: ??? under what conditions?
+        
+        run time is always O(n) because the height function is being called on the root node 
+        and the time complexity of the node classes height function is O(n)
+
+        """
         # TODO: Check if root node has a value and if so calculate its height
         if self.root:
             return self.root.height()
@@ -75,7 +80,14 @@ class BinarySearchTree(object):
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        
+        best case run time is O(1) and that would be when the item being searched 
+        for is the root node
+        worst case run time is O(n) and that would be when what is being searched for is not in the tree
+        or it is in the last node that is searched
+        
+        """
         # Find a node with the given item, if any
         # node = self._find_node_iterative(item)
         node = self._find_node_recursive(item, self.root)
@@ -86,7 +98,16 @@ class BinarySearchTree(object):
         """Return an item in this binary search tree matching the given item,
         or None if the given item is not found.
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        
+        best case run time is O(1) and that would be when the item being searched 
+        for is the root node
+        worst case run time is O(n) and that would be when what is being searched for is not in the tree
+        or it is in the last node that is searched
+
+
+        
+        """
         # Find a node with the given item, if any
         # node = self._find_node_iterative(item)
         node = self._find_node_recursive(item, self.root)
@@ -101,7 +122,17 @@ class BinarySearchTree(object):
     def insert(self, item):
         """Insert the given item in order into this binary search tree.
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        
+        Best case run time is O(1) and that would be when the tree is
+        empty so the item is placed as the root of the tree
+        Worst case run time is O(h) where h is the height of the tree
+        the entire tree is not traversed to enter the new item.
+        Because of binary search the worst case is that this function
+        searches down the longest section of the tree and inserts the new item
+        there.
+        
+        """
         # Handle the case where the tree is empty
         if self.is_empty():
             # TODO: Create a new root node
@@ -128,7 +159,15 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed iteratively
         starting from the root node.
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        
+        Best case run time is the item being searched for is the root so 1 iteration is required
+        and the run time would be O(1)
+        Worst case is O(h) where h is the height of the tree. Because of binary search this function
+        will cut out more and more of the possibilities and the furthest it could go
+        is the height of the tree
+        
+        """
         # Start with the root node
         node = self.root
         # Loop until we descend past the closest leaf node
@@ -154,7 +193,15 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed recursively
         starting from the given node (give the root node to start recursion).
         TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        TODO: Worst case running time: ??? under what conditions?
+        
+        Best case run time is the item being searched for is the root so only 1 call is required
+        and there would be no recursive calls so the run time would be O(1)
+        Worst case is O(h) where h is the height of the tree. Because of binary search this function
+        will cut out more and more of the possibilities and the furthest it could go
+        is the height of the tree
+        
+        """
         # Check if starting node exists
         if node is None:
             # Not found (base case)
@@ -181,7 +228,11 @@ class BinarySearchTree(object):
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?
         
-
+        Best case run time is the item being searched for is the root so 1 iteration is required
+        and the run time would be O(1)
+        Worst case is O(h) where h is the height of the tree. Because of binary search this function
+        will cut out more and more of the possibilities and the furthest it could go
+        is the height of the tree
         
         """
         # Start with the root node and keep track of its parent
@@ -211,7 +262,15 @@ class BinarySearchTree(object):
         (or the parent node of where the given item would be if inserted)
         in this tree, or None if this tree is empty or has only a root node.
         Search is performed recursively starting from the given node
-        (give the root node to start recursion)."""
+        (give the root node to start recursion).
+        
+        Best case run time is the item being searched for is the root so only 1 call is required
+        and there would be no recursive calls so the run time would be O(1)
+        Worst case is O(h) where h is the height of the tree. Because of binary search this function
+        will cut out more and more of the possibilities and the furthest it could go
+        is the height of the tree
+        
+        """
         # Check if starting node exists
         if node is None:
             # Not found (base case)
