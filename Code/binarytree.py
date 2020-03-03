@@ -290,6 +290,16 @@ class BinarySearchTree(object):
             if node.right is not None:
                 return self._find_parent_node_recursive(item, node.right, node)  # Hint: Remember to update the parent parameter
         return node
+
+
+    def num_children(self, node):
+        if node.left is None and node.right is None:
+            return 0
+        if node.left is not None and node.right is not None:
+            return 2
+        else:
+            return 1
+
     def delete(self, item):
         """Remove given item from this tree, if present, or raise ValueError.
         TODO: Best case running time: ??? under what conditions?
@@ -297,7 +307,20 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
-        pass
+        # node = self._find_node_recursive(item)
+        # parent_node = self._find_parent_node_recursive(item, node)
+        # num_children = self.num_children(node)
+
+        # if num_children == 0:
+        #     if node.data < parent_node.data:
+        #         parent_node.left = None
+        #     elif node.data > parent_node.data:
+        #         parent_node.right = None
+
+        # elif num_children == 1:
+
+
+
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
