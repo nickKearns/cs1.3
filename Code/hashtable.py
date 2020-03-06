@@ -99,7 +99,14 @@ class HashTable(object):
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Worst case running time: ??? under what conditions? [TODO]
+        
+        the find function that is being called is doing linear search through
+        a linked list. So that takes O(l) time where l is the length of the linked
+        list. But with a resizable hashtable the load factor should always be small,
+        making the contains function run in constant time O(1)
+        
+        """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]

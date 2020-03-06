@@ -23,16 +23,26 @@ class Set:
 
 
     def delete(self, item):
-        if self.contains(item):
-            self.table.delete(item)
+        self.table.delete(item)
 
 
     def union_op(self, set_b):
+        '''
+
+        .keys() call takes O(n) time every time so that would be 2*n 
+        
+
+        '''
         set_c = Set(self.table.keys() + set_b.table.keys())
         return set_c
         
 
     def intersection_op(self, set_b):
+        '''
+        
+        '''
+
+
         set_c_list = []
         for item in self.table.keys():
             if set_b.contains(item):
@@ -41,16 +51,17 @@ class Set:
 
     
     def difference_op(self, set_b):
-        set_c = Set(self.table.keys()) #make a copy of the first set
+        set_c = Set()
         for item in self.table.keys():
-            if set_b.contains(item):
-                set_c.delete(item)
+            if not set_b.contains(item):
+                set_c.add(item)
         return set_c
 
 
     def is_subset_op(self, set_b):
         '''
         returns a boolean on whether or not set a is a subset of the given set
+        O(m*n) or O(n^2)
         '''
         counter = 0
         for item in self.table.keys():

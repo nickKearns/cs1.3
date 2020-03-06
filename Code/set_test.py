@@ -7,6 +7,7 @@ class SetTest(unittest.TestCase):
         set_a = Set()
         assert set_a.size() == 0
         assert set_a.contains('A') == False
+        assert set_a.contains(30) == False
 
     def test_contains(self):
         set_a = Set(['A', 'B', 'C', 'D'])
@@ -23,6 +24,7 @@ class SetTest(unittest.TestCase):
         assert set_a.contains('a') == False
         set_a.add('K')
         assert set_a.contains('K') == True
+        assert set_a.size() == 2
         
 
 
@@ -32,8 +34,8 @@ class SetTest(unittest.TestCase):
         set_a.delete('A')
         assert set_a.size() == 3
         assert set_a.contains('A') == False
-        set_a.delete('E')
-        assert set_a.contains('E') == False
+        assert set_a.contains('C') == True
+        
         
     
     def test_union(self):

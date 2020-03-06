@@ -35,7 +35,7 @@ class LinkedQueue(object):
         this function takes constant time because appending something to a linked list takes constant time
         """
         # TODO: Insert given item
-        self.list.append(item)
+        self.list.prepend(item)
         
 
     def front(self):
@@ -46,7 +46,7 @@ class LinkedQueue(object):
         if self.list.is_empty():
             return None
         else:
-            return self.list.head.data
+            return self.list.tail.data
 
     def dequeue(self):
         """Remove and return the item at the front of this queue,
@@ -61,7 +61,7 @@ class LinkedQueue(object):
         if self.list.is_empty():
             raise ValueError("no data")
         else:
-            front_data = self.list.head.data
+            front_data = self.list.tail.data
             self.list.delete(front_data)
             return front_data
 
@@ -134,5 +134,5 @@ class ArrayQueue(object):
 
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
-# Queue = LinkedQueue
-Queue = ArrayQueue
+Queue = LinkedQueue
+# Queue = ArrayQueue
