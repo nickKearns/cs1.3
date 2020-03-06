@@ -37,7 +37,7 @@ class LinkedStack(object):
         in the linked list
         """
         # TODO: Push given item
-        self.list.append(item)
+        self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
@@ -50,7 +50,7 @@ class LinkedStack(object):
         if self.is_empty():
             return None
         else:
-            return self.list.tail.data
+            return self.list.head.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
@@ -64,8 +64,8 @@ class LinkedStack(object):
         case running time
         """
         # TODO: Remove and return top item, if any
-        if self.list.tail:
-            top_data = self.list.tail.data
+        if self.list.head:
+            top_data = self.list.head.data
             self.list.delete(top_data)
             return top_data
         else:
@@ -141,5 +141,5 @@ class ArrayStack(object):
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-# Stack = LinkedStack
-Stack = ArrayStack
+Stack = LinkedStack
+# Stack = ArrayStack
